@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from geopy.geocoders import Nominatim
+from .models import DistanceCalculation
 import osmnx as ox
 import networkx as nx
 
@@ -38,5 +39,11 @@ def geocode_address(request):
 
     shortest_path = nx.shortest_path_length(graph, start_node, end_node, weight="length")
     distance_km = shortest_path / 1000
+
+    DistanceCalculation.objects.create(
+        start_address=start_address,
+        end_address=end_address,
+        distance_km=round(distance_km, 2)
+    )
 
     return Response({'distance_km': round(distance_km, 2)})

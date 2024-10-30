@@ -132,7 +132,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'myapp',  # Replace 'myapp' with the name of your Django app
+    'myapp', 
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Only use in development

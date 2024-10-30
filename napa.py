@@ -8,7 +8,6 @@ def get_coordinates(address):
     else:
         return "Address not found"
 
-# Example usage
 address = "Rua da Graça 201, São Paulo, Brazil"
 coordinates = get_coordinates(address)
 print(f"Coordinates for '{address}': {coordinates}")
